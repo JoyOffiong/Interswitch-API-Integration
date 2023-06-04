@@ -1,136 +1,146 @@
-import React from 'react'
+import axios from 'axios';
 
 function HostedFields() {
+//     const [firstName, setFirstName] = useState("");
+//     const [lastName, setLastName] = useState("");
+//     const [email, setEmail] =  useState("");
+//     const [phone, setPhone] = useState('');
+//     const [type, setType] = useState('');
 
-    let configuration = {
-        fields: {
-            cardNumber: {
-                selector: '#cardNumber-container',
-                placeholder: '****  ****  ****  ****',
-                styles: {}
-            },
-            expirationDate: {
-                selector: '#expirationDate-container',
-                placeholder: 'MM / YY',
-                styles: {}
-            },
-            cvv: {
-                selector: '#cvv-container',
-                placeholder: '***',
-                styles: {}
-            },
-            pin: {
-                selector: '#pin-container',
-                placeholder: '* * * *',
-                styles: {}
-            },
-            otp: {
-                selector: '#otp-container',
-                placeholder: '* * * * * *',
-                styles: {}
-            }
-        },
-        cardinal: {
-            containerSelector: '.cardinal-container',
-            activeClass: 'show'
-        },
-        paymentParameters: {
-            amount: 150000,
-            currencyCode: "566",
-            dateOfPayment: '2021-11-08T00:00:00',
-            payableCode: "Default_Payable_MX26070",
-            merchantCustomerName: "John Doe",
-            merchantCode: 'XXXXXXXX',
-            transactionReference: "isw_hosted_field_test:" + Date.now(),
-        }
+// const   data={
+    // type: "CORPORATE",
+    // email: "excellentpartners@nomail.com",
+    // registeredName: "Excellent Partners Nigeria Limited",
+//     verificationRequests: [
+//             {
+//                 type: "ADDRESS",
+//                 buildingNumber: "15B",
+//                 street: "Oko Awo Street",
+//                 landmark: "Eko Hotel",
+//                 city: "Victoria Island",
+//                 state: "NG-LA",
+//                 country: "NGA",
+//                 base64EncodedImage: "/9j/4AAQSkZJRgABAQEASABIAAD//gBcYm9yZGVyIGJzOjAgYmM6IzAwMDAwMCBwczowIHBjOiNlZWVlZWUgZXM6MCBlYzojMDAwMDAwIGNrOjUwMGQwMmE0ZjFmMWQ3NDk3MzQwY2M1ODY4OTZiZjEx/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAGQAZAwEiAAIRAQMRAf/EABgAAQADAQAAAAAAAAAAAAAAAAcEBQYI/8QAMRAAAgECBAQEAgsAAAAAAAAAAQIDBBEABQYSByExQRMUIlEVczI2YWJxcpGTsbLC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgME/8QAHREAAQUAAwEAAAAAAAAAAAAAAQACAwQREyEiMf/aAAwDAQACEQMRAD8AvuJPGqo0trd9MZZp1qidCiNV1cjRoWcCxVQvNBceq/Pn+OMtFrYfHJqTV1I1JVs1jVbyyqe28AEhelmUkWt6SOYbOONXDRcP2jrL+VqauGKRhzKAN4gKjudyKLfbgyjoNMapmarcJVNTRKiwvuVlFjtuORHL39sRfYMLlpjottRnT2q3I9Z1eU8QsgytJoJaWsZaasjp5N8bNKwWN1IuLg7TuHVW/R48I4EuHOkcqqtWxZzFEhnaqM9LAG2JTww7VLBB1Jaxv95e/PDnY4Yl5fQUpKxrYwnVA4uZM2p9CZhk9FLTLmMjQy04mJsHSRXHQEi4Ui9u+OZpct1lUZjPl9ZFDSeUJpGnEgbaqsVIS3Nu9rjucdXZZ9E/NP8AbB1qf635l8wfwcRsnG6tVEFzi3elUcJcuqMq1E0NPRGeGSjMTylvVCqnde563Jtblzt7YT/Ow+037bYi8Nutf+VP9Y0uFVGxglG9nMQBnxf/2Q=="
+//             },
+//             {
+//                 type: "AML",
+//                 country: "NGA"
+//             },
+//             {
+//                     type: "CORPORATE_REGISTRATION",
+//                 country: "NGA",
+//                 identityNumber: "1111111111"
+                
+//             }
+//         ],
+//     callbackUrl: "http://localhost:8080"
+//   }
+
+
+// const submit = async () => {
+//     try {
+//       let response = await axios.post( 'https://qa.interswitchng.com/collections/api/v1/ussd/issuers/NG', 
+     
+//      {headers:{
+//         accept: 'application/json',
+//         Authorization: 'Bearer + 9BImT9tkHo5iq1tYgj0QeEbWqdwYezTgQRbYZpZeqew=',
+//         "Content-Type": "application/json"
+        
+//      }} );
+//      console.log(response)
+//     }catch(error){
+//         console.log(error)
+//     }
+
+//   };
+const submit = async () => {
+    try {
+      let response = await axios.post( 'https://qa.interswitchng.com/paymentgateway/api/v1/merchant/invoice/create', {
+        data: {
+            amount: '250000',
+            customerName: 'Toyosi Oyelayo',
+            customerEmail: 'toyosi@nomail.com',
+            merchantCode: 'MX6072',
+            payableCode: '9405967',
+            dueDate: '2604188800000',
+            discountPercent: '5.5',
+            shippingFee: '70000',
+            address: 'Address'
+          }
+      },
+     
+     {headers:{
+        accept: 'application/json',
+        Authorization: 'Bearer  SUtJQTY4Mzg2QThCQzdDRTcwNkVGNDRGMDMyNTdCMUE3RjQyNTM3NTYyQ0Q6OUJJbVQ5dGtIbzVpcTF0WWdqMFFlRWJXcWR3WWV6VGdRUmJZWnBaZXFldz0=',
+        "Content-Type": "application/json"
+        
+     }} );
+     console.log(response)
+    }catch(error){
+        console.log(error)
     }
 
+  };
 
   return (
-   
-       <div className="payment-form-container" data-field-type="pan">
-  <div className="form-header">
-    <img src="https://mufasa-qa.interswitchng.com/p/webpay/logos/default.png" />
-    <div className="info">
-      <div className="title">ISW Hosted Fields Sample 1</div>
-
-
-      <div>₦ <span id="amount" /></div>
-    </div>
-  </div>
-  <div className="alertSuccess" id="response">
-    <p id="response-code" style={{padding: '0px 10px'}} />
-    <p id="response-message" style={{padding: '0px 10px'}} />
-  </div>
-  <div className="form-page card-details show">
-    <div className="form-control">
-      <label>Card Number</label>
-      <div id="cardNumber-container" className="payment-field" />
-    </div>
-    <div className="form-group">
-      <div className="form-control">
-        <label>EXP</label>
-        <div id="expirationDate-container" className="payment-field" />
-      </div>
-      <div className="form-control">
-        <label>CVV</label>
-        <div id="cvv-container" className="payment-field" />
-      </div>
-    </div>
-    <div className="button-container">
-      <button id="pay-button" className="blue">Pay</button>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-  <div className="form-page pin">
-    <div className="back-control" id="pin-back-button">
-      <img src="./back-icon.png"  alt='back'/>
-      <label>Back</label>
-    </div>
-    <div className="form-text">Please provide your PIN</div>
-    <div className="form-control">
-      <label />
-      <div id="pin-container" className="payment-field" />
-    </div>
-    <div className="button-container">
-      <button id="continue-button" className="green">Continue</button>
-    </div>
-  </div>
-
-
-
-
-
   
-  <div className="form-page otp">
-    <div className="back-control" id="otp-back-button">
-      <img src="./back-icon.png" alt='back' />
-      <label>Back</label>
-    </div>
-    <div className="form-text">
-      Please input the OTP sent to your mobile number
-    </div>
-    <div className="form-control">
-      <label />
-      <div id="otp-container" className="payment-field" />
-    </div>
-    <div className="button-container">
-      <button id="validate-button" className="orange">Validate</button>
-    </div>
-  </div>
-  <div className="form-page cardinal">
-    <div className="cardinal-container" />
-  </div>
-</div>
+<div>
+    <h2>Hosted Fields</h2>
 
+    {/* <form className=" w-full flex flex-col justify-center" onSubmit={submit}>
+          <div className=" mb-4 flex flex-col md:flex-row  w-full">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Students Name"
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              className="w-full border border-gray-400 px-3 py-2 rounded-md "
+            />
+          </div>
+          <div className=" mb-4 flex flex-col md:flex-row  w-full md:w-1/3">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Students Name"
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+              className="w-full border border-gray-400 px-3 py-2 rounded-md "
+            />
+          </div>
+          <div className=" mb-4 flex flex-col md:flex-row  w-full">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Email Address"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              className="w-full border border-gray-400 px-3 py-2 rounded-md "
+            />
+          </div>
+          <div className=" mb-4 flex flex-col md:flex-row  w-full">
+            <input
+              type="number"
+              id="name"
+              name="name"
+              placeholder="Amount"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+              className="w-full border border-gray-400 px-3 py-2 rounded-md "
+            />
+          </div>
+          <input type="submit" placeholder='Verify'/>
+        </form> */}
+
+        <button onClick={()=>submit()}>Verify</button>
+</div>
     
   )
 }

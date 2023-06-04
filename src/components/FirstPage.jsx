@@ -8,11 +8,12 @@ function FirstPage() {
     const [name, setName] = useState("");
     const [email, setEmail] =  useState("");
     const [amount, setAmount] = useState(0);
+    const [reason, setReason] = useState('');
     const props = {
         merchantCode: "MX26070",
         payItemID: "Default_Payable_MX26070",
       customerEmail: email,
-      redirectURL: "https://www.google.com",
+      redirectURL: "http://localhost:3003/landingPage",
       text: "Pay Now",
       mode: "TEST",
       transactionReference: Date.now().toString(),
@@ -22,15 +23,15 @@ function FirstPage() {
         height: "40px",
         border: "none",
         color: "#fff",
-        backgroundColor: "#ff0000",
+        backgroundColor: "#047857",
       },
-      callback: (response) => {
-        console.log("response: ", response);
+      callback: () => {
+        'http://localhost:3003/landingPage'
       },
     };
   
   return (
-    <div className="flex">
+    <div className="flex justify-between h-[100vh]">
       <div>
         <Home
           amount={amount}
@@ -39,6 +40,8 @@ function FirstPage() {
           setName={setName}
           email={email}
           setEmail={setEmail}
+          reason={reason}
+          setReason={setReason}
         />
        <SwitchPay {...props} />
         

@@ -1,24 +1,23 @@
 /* eslint-disable no-octal */
-import React, { useState, useEffect } from "react";
-import logo from "./images/school.png";
-import {Link} from 'react-router-dom'
 
 
 
 interface Props {
     setName: React.Dispatch<React.SetStateAction<string>>;
     setEmail: React.Dispatch<React.SetStateAction<string>>;
+    setReason: React.Dispatch<React.SetStateAction<string>>;
     setAmount: React.Dispatch<React.SetStateAction<number>>;
     name: string;
     email: string;
+    reason: string;
     amount: number;
   } 
-function Home({ setName, setEmail, setAmount, name, email, amount }: Props) {
+function Home({ setName, setEmail, setAmount,setReason, name, email, amount, reason }: Props) {
   return(
     <>
             <div className=" w-full flex flex-col items-center">
       <div className="flex justify-start items-center px-0 py-10 ">
-        <img src={logo} width="100px" height="100px" alt="" />
+      <h3 className="text-3xl font-bold">YO!</h3>
       </div>
 
       <div className=" w-full text-center   flex flex-col justify-center px-20 md:px-40">
@@ -62,6 +61,21 @@ function Home({ setName, setEmail, setAmount, name, email, amount }: Props) {
               }}
               className="w-full border border-gray-400 px-3 py-2 rounded-md "
             />
+          </div>
+          <div className=" mb-4 flex flex-col md:flex-row  w-full">
+            <select
+              id="name"
+              name="name"
+              placeholder="Reason"
+              onChange={(e) => {
+                setReason(e.target.value);
+              }}
+              className="w-full border border-gray-400 px-3 py-2 rounded-md "
+            >
+                <option value="Artime subscription">Airtime Subscription</option>
+                <option value="Data subscription ">Data Subscription</option>
+            </select>
+
           </div>
         </form>
       </div>
