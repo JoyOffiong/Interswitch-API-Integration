@@ -59,9 +59,7 @@ function LandingPage() {
             <Link to="/firstPage">
               <button className="bg-green-400 p-2 font-bold rounded-md">Payments</button>
             </Link>
-            <Link to="/hostedFields">
-              <button className="bg-green-300 p-2 font-bold rounded-md">Verify your business</button>
-            </Link>
+        
           </div>
         </div>
       </div>
