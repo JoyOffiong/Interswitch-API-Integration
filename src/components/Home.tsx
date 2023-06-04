@@ -1,7 +1,5 @@
 /* eslint-disable no-octal */
 
-
-
 interface Props {
     setName: React.Dispatch<React.SetStateAction<string>>;
     setEmail: React.Dispatch<React.SetStateAction<string>>;
