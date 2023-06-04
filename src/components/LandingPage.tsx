@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiMenuAltLeft } from "react-icons/bi";
-import hero from "./images/sean-pollock-PhYq704ffdA-unsplash.jpg";
+import hero from "./images/carlos-muza-hpjSkU2UYSU-unsplash.jpg";
 import hero2 from "./images/mailchimp-lsdA8QpWN_A-unsplash.jpg";
+import hero3 from "./images/scott-graham-5fNmWej4tAA-unsplash.jpg";
 
 function LandingPage() {
-  const bgImages = [hero, hero2];
+  const bgImages = [hero, hero2, hero3];
   const [bg, setBg] = useState(0);
   // console.log(bg)
 
@@ -22,8 +23,11 @@ function LandingPage() {
   const currentImg = bgImages[bg];
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="relative ">
+    <div className="flex flex-col h-full" style={{ height: "100vh" }}>
+      <div
+        className="relative bg-transition ease-in-out duration-2000"
+        style={{ animation: "bgImageAnimation 6s infinite;" }}
+      >
         {" "}
         <img
           src={`${currentImg}`}
@@ -55,11 +59,13 @@ function LandingPage() {
               Welcome to UFinance!, make all Payments with Ease
             </h3>
           </div>
-          <div className="mt-20 mx-auto z-30 flex justify-center items-center gap-20">
+          <div className="mt-20 w-[100%] md:w-[70%] mx-auto z-30 flex justify-between items-center gap-20">
             <Link to="/firstPage">
-              <button className="bg-green-700 p-2 font-bold rounded-md">Payments</button>
+              <button className="bg-green-700 p-2 font-bold rounded-md">
+                Payments
+              </button>
             </Link>
-        
+           
           </div>
         </div>
       </div>

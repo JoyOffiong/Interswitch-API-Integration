@@ -1,78 +1,19 @@
 import axios from 'axios';
+import { BiMenuAltLeft } from 'react-icons/bi';
 
 function HostedFields() {
-//     const [firstName, setFirstName] = useState("");
-//     const [lastName, setLastName] = useState("");
-//     const [email, setEmail] =  useState("");
-//     const [phone, setPhone] = useState('');
-//     const [type, setType] = useState('');
 
-// const   data={
-    // type: "CORPORATE",
-    // email: "excellentpartners@nomail.com",
-    // registeredName: "Excellent Partners Nigeria Limited",
-//     verificationRequests: [
-//             {
-//                 type: "ADDRESS",
-//                 buildingNumber: "15B",
-//                 street: "Oko Awo Street",
-//                 landmark: "Eko Hotel",
-//                 city: "Victoria Island",
-//                 state: "NG-LA",
-//                 country: "NGA",
-//                 base64EncodedImage: "/9j/4AAQSkZJRgABAQEASABIAAD//gBcYm9yZGVyIGJzOjAgYmM6IzAwMDAwMCBwczowIHBjOiNlZWVlZWUgZXM6MCBlYzojMDAwMDAwIGNrOjUwMGQwMmE0ZjFmMWQ3NDk3MzQwY2M1ODY4OTZiZjEx/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAGQAZAwEiAAIRAQMRAf/EABgAAQADAQAAAAAAAAAAAAAAAAcEBQYI/8QAMRAAAgECBAQEAgsAAAAAAAAAAQIDBBEABQYSByExQRMUIlEVczI2YWJxcpGTsbLC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgME/8QAHREAAQUAAwEAAAAAAAAAAAAAAQACAwQREyEiMf/aAAwDAQACEQMRAD8AvuJPGqo0trd9MZZp1qidCiNV1cjRoWcCxVQvNBceq/Pn+OMtFrYfHJqTV1I1JVs1jVbyyqe28AEhelmUkWt6SOYbOONXDRcP2jrL+VqauGKRhzKAN4gKjudyKLfbgyjoNMapmarcJVNTRKiwvuVlFjtuORHL39sRfYMLlpjottRnT2q3I9Z1eU8QsgytJoJaWsZaasjp5N8bNKwWN1IuLg7TuHVW/R48I4EuHOkcqqtWxZzFEhnaqM9LAG2JTww7VLBB1Jaxv95e/PDnY4Yl5fQUpKxrYwnVA4uZM2p9CZhk9FLTLmMjQy04mJsHSRXHQEi4Ui9u+OZpct1lUZjPl9ZFDSeUJpGnEgbaqsVIS3Nu9rjucdXZZ9E/NP8AbB1qf635l8wfwcRsnG6tVEFzi3elUcJcuqMq1E0NPRGeGSjMTylvVCqnde563Jtblzt7YT/Ow+037bYi8Nutf+VP9Y0uFVGxglG9nMQBnxf/2Q=="
-//             },
-//             {
-//                 type: "AML",
-//                 country: "NGA"
-//             },
-//             {
-//                     type: "CORPORATE_REGISTRATION",
-//                 country: "NGA",
-//                 identityNumber: "1111111111"
-                
-//             }
-//         ],
-//     callbackUrl: "http://localhost:8080"
-//   }
-
-
-// const submit = async () => {
-//     try {
-//       let response = await axios.post( 'https://qa.interswitchng.com/collections/api/v1/ussd/issuers/NG', 
-     
-//      {headers:{
-//         accept: 'application/json',
-//         Authorization: 'Bearer + 9BImT9tkHo5iq1tYgj0QeEbWqdwYezTgQRbYZpZeqew=',
-//         "Content-Type": "application/json"
-        
-//      }} );
-//      console.log(response)
-//     }catch(error){
-//         console.log(error)
-//     }
-
-//   };
 const submit = async () => {
     try {
-      let response = await axios.post( 'https://qa.interswitchng.com/paymentgateway/api/v1/merchant/invoice/create', {
-        data: {
-            amount: '250000',
-            customerName: 'Toyosi Oyelayo',
-            customerEmail: 'toyosi@nomail.com',
-            merchantCode: 'MX6072',
-            payableCode: '9405967',
-            dueDate: '2604188800000',
-            discountPercent: '5.5',
-            shippingFee: '70000',
-            address: 'Address'
-          }
-      },
-     
+      let response = await axios.get( 'https://api-gateway.interswitchng.com/generic-wallet/api/v1/admin/account/banks', {
+      
+      grant_type:"client_credentials"
+        
+      }
+     ,
      {headers:{
-        accept: 'application/json',
-        Authorization: 'Bearer  SUtJQTY4Mzg2QThCQzdDRTcwNkVGNDRGMDMyNTdCMUE3RjQyNTM3NTYyQ0Q6OUJJbVQ5dGtIbzVpcTF0WWdqMFFlRWJXcWR3WWV6VGdRUmJZWnBaZXFldz0=',
-        "Content-Type": "application/json"
+       "Authorization": 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiaXN3LWNvbGxlY3Rpb25zIiwiaXN3LXBheW1lbnRnYXRld2F5IiwicGFzc3BvcnQiLCJwcm9qZWN0LXgtbWVyY2hhbnQiLCJ2YXVsdCJdLCJtZXJjaGFudF9jb2RlIjoiTVg5NTg5OCIsInJlcXVlc3Rvcl9pZCI6IjEyMzQ1NzU4NTE1Iiwic2NvcGUiOlsicHJvZmlsZSJdLCJleHAiOjE2ODU5NDQ0MTksImNsaWVudF9uYW1lIjoiRGlvclNkZjl1UlQwbUpSNlRadXd2cG5pL3dxM05ZME5TQUl5aTFjOHhmQT0iLCJqdGkiOiI5NDE1NGQwMC0yZjU4LTQ0NGEtODJhNi0yMGVlMzAwNWE1NTYiLCJwYXlhYmxlX2lkIjoiMTg1NTE1MyIsImNsaWVudF9pZCI6IklLSUE2ODM4NkE4QkM3Q0U3MDZFRjQ0RjAzMjU3QjFBN0Y0MjUzNzU2MkNEIn0.Hm-qs9n_SbO3YwXo7d7yG3gQsQX2ZHjpQP2Oh_28jPEtrtrxgf4UcRH8QVxwBi_Y_KpVMyLLn66Un6H8F5TrkllxjqcrEHyArXtXC5OyAaTOVMXOAEA8CiSi8dFBLjoZPSMCvi6IvG_NuoXd4Ze_bU6S8Riq2AzuUZQ7G_8V0ltKgXrVKej0eYfe7oCIYZtY6d-s1-xCmGIadyvbwnptBQvJhxIc9JlqmtRccZN-lfiL5qoS0fd2Kifh2X6yLEQpc52iowyrxPsnE38nTOFnFs7FpDAFxd2ueZaAHeDd-jMaLGh7TCqlOKtayoduFeyylpeWT9ydlebQ25qDwibKHg',
+        "Content-Type": "application/x-www-form-urlencoded"
         
      }} );
      console.log(response)
@@ -83,63 +24,34 @@ const submit = async () => {
   };
 
   return (
-  
-<div>
-    <h2>Hosted Fields</h2>
+<div className='bg-gray-300 h-[100%] relative'>
+    <div className='flex justify-start flex-col  '>
+    <div className=" flex items-center  justify-between tablet:py-5 phone:pl-8 tablet:px-20 phone:py-3 w-screen z-30 bg-white shadow-md">
+          <div className="flex items-center justify-between w-2/5 py-10 px-20">
+            <h3 className="text-3xl font-bold">UFinance!</h3>
+            <p className=" hidden md:block text-gray-500 font-bold">Features</p>
+            <p className=" hidden md:block text-gray-500 font-bold">Pricing</p>
+            <p className=" hidden md:block text-gray-500 font-bold">
+              Resources
+            </p>
+          </div>
 
-    {/* <form className=" w-full flex flex-col justify-center" onSubmit={submit}>
-          <div className=" mb-4 flex flex-col md:flex-row  w-full">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Students Name"
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
-              className="w-full border border-gray-400 px-3 py-2 rounded-md "
-            />
+          <div className="flex items-center justify-between w-1/5">
+            <div className="laptop:hidden tablet:block">
+              <BiMenuAltLeft className="text-4xl" />
+            </div>
           </div>
-          <div className=" mb-4 flex flex-col md:flex-row  w-full md:w-1/3">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Students Name"
-              onChange={(e) => {
-                setLastName(e.target.value);
-              }}
-              className="w-full border border-gray-400 px-3 py-2 rounded-md "
-            />
-          </div>
-          <div className=" mb-4 flex flex-col md:flex-row  w-full">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Email Address"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              className="w-full border border-gray-400 px-3 py-2 rounded-md "
-            />
-          </div>
-          <div className=" mb-4 flex flex-col md:flex-row  w-full">
-            <input
-              type="number"
-              id="name"
-              name="name"
-              placeholder="Amount"
-              onChange={(e) => {
-                setPhone(e.target.value);
-              }}
-              className="w-full border border-gray-400 px-3 py-2 rounded-md "
-            />
-          </div>
-          <input type="submit" placeholder='Verify'/>
-        </form> */}
+        </div>
+    <h3 className="text-[24px] md:text-[48px] w-[70%] mx-auto text-green-700 z-30 font-bold">
+            Fetch all Banks Codes here with ease
+            </h3>
+           <div className="bg-green-700 p-2 font-bold rounded-md md:w-[10%] w-[40%]  mx-auto mt-10"> 
+            <button onClick={()=>submit()}>Fetch Codes</button>
+            </div>
 
-        <button onClick={()=>submit()}>Verify</button>
+       
+    </div>
+       
 </div>
     
   )
