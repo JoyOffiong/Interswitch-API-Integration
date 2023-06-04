@@ -51,7 +51,7 @@ function LandingPage() {
 
         <div className="flex flex-col justify-center z-30 px-20 mt-100  w-screen">
           <div className=" mx-auto z-30 flex mt-64 justify-center items-center gap-20">
-            <h3 className="text-[64px] text-gray-700 z-30 font-bold">
+            <h3 className="text-[64px] text-green-700 z-30 font-bold">
               Welcome to UFinance!, make all Payments with Ease
             </h3>
           </div>
