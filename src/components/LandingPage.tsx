@@ -22,7 +22,7 @@ function LandingPage() {
   const currentImg = bgImages[bg];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       <div className="relative ">
         {" "}
         <img
@@ -32,7 +32,7 @@ function LandingPage() {
         />
       </div>
       <div className="absolute top-0 ">
-        <div className=" flex items-center  justify-between tablet:py-5 phone:pl-8 tablet:px-20 phone:py-3 fixed w-screen z-30 bg-white shadow-md">
+        <div className=" flex items-center  justify-between tablet:py-5 phone:pl-8 tablet:px-20 phone:py-3 w-screen z-30 bg-white shadow-md">
           <div className="flex items-center justify-between w-2/5 py-10 px-20">
             <h3 className="text-3xl font-bold">UFinance!</h3>
             <p className=" hidden md:block text-gray-500 font-bold">Features</p>
@@ -50,12 +50,12 @@ function LandingPage() {
         </div>
 
         <div className="flex flex-col justify-center z-30 px-20 mt-100  w-screen">
-          <div className=" mx-auto z-30 flex mt-64 justify-center items-center gap-20">
-            <h3 className="text-[64px] text-green-700 z-30 font-bold">
+          <div className=" mx-auto z-30 flex mt-48 justify-center items-center gap-20">
+            <h3 className="text-[24px] md:text-[48px] lg:text-[64px]  text-green-700 z-30 font-bold">
               Welcome to UFinance!, make all Payments with Ease
             </h3>
           </div>
-          <div className="mt-40 mx-auto z-30 flex justify-center items-center gap-20">
+          <div className="mt-20 mx-auto z-30 flex justify-center items-center gap-20">
             <Link to="/firstPage">
               <button className="bg-green-700 p-2 font-bold rounded-md">Payments</button>
             </Link>
