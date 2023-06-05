@@ -1,38 +1,38 @@
-import React, {useState} from 'react'
-import Home from './Home'
-import SideBar from './SideBar'
+import React, { useState } from "react";
+import Home from "./Home";
+import SideBar from "./SideBar";
 
 import SwitchPay from "./InterswitchPay";
 
 function FirstPage() {
-    const [name, setName] = useState("");
-    const [email, setEmail] =  useState("");
-    const [amount, setAmount] = useState(0);
-    const [reason, setReason] = useState('');
-    const props = {
-        merchantCode: "MX26070",
-        payItemID: "Default_Payable_MX26070",
-      customerEmail: email,
-      redirectURL: "http://localhost:3003/landingPage",
-      text: "Pay Now",
-      mode: "TEST",
-      transactionReference: Date.now().toString(),
-      amount: amount * 100,
-      style: {
-        width: "200px",
-        height: "40px",
-        border: "none",
-        color: "#fff",
-        backgroundColor: "#047857",
-      },
-      callback: () => {
-        'http://localhost:3003/landingPage'
-      },
-    };
-  
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [reason, setReason] = useState("");
+  const props = {
+    merchantCode: "MX26070",
+    payItemID: "Default_Payable_MX26070",
+    customerEmail: email,
+    redirectURL: "http://localhost:3003/landingPage",
+    text: "Pay Now",
+    mode: "TEST",
+    transactionReference: Date.now().toString(),
+    amount: amount * 100,
+    style: {
+      width: "200px",
+      height: "40px",
+      border: "none",
+      color: "#fff",
+      backgroundColor: "#047857",
+    },
+    callback: () => {
+      "http://localhost:3003/landingPage";
+    },
+  };
+
   return (
-    <div className="flex justify-between h-[100vh]">
-      <div>
+    <div className=" h-[100vh] flex flex-col md:flex-row justify-between ">
+      <div className="">
         <Home
           amount={amount}
           setAmount={setAmount}
@@ -43,14 +43,12 @@ function FirstPage() {
           reason={reason}
           setReason={setReason}
         />
-       <SwitchPay {...props} />
-        
+        <SwitchPay {...props} />
       </div>
 
-  <SideBar/>
+      <SideBar />
     </div>
-
-  )
+  );
 }
 
-export default FirstPage
+export default FirstPage;

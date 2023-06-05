@@ -37,7 +37,7 @@ function LandingPage() {
       </div>
       <div className="absolute top-0 ">
         <div className=" flex items-center  justify-between tablet:py-5 phone:pl-8 tablet:px-20 phone:py-3 w-screen z-30 bg-white shadow-md">
-          <div className="flex items-center justify-between w-2/5 py-10 px-20">
+          <div className="flex items-center justify-between w-2/5 py-5 px-10">
             <h3 className="text-3xl font-bold">UFinance!</h3>
             <p className=" hidden md:block text-gray-500 font-bold">Features</p>
             <p className=" hidden md:block text-gray-500 font-bold">Pricing</p>
@@ -59,7 +59,7 @@ function LandingPage() {
               Welcome to UFinance!, make all Payments with Ease
             </h3>
           </div>
-          <div className="mt-20 w-[100%] md:w-[70%] mx-auto z-30 flex justify-between items-center gap-20">
+          <div className="mt-20 w-[100%] md:w-[70%] mx-auto z-30 flex justify-center items-center gap-20">
             <Link to="/firstPage">
               <button className="bg-green-700 p-2 font-bold rounded-md">
                 Payments
